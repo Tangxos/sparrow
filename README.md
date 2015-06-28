@@ -1,2 +1,0 @@
-# sparrow
-my sparrow plan.
