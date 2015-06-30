@@ -1,3 +1,1 @@
-version 0.1
-version 0.2
-version 0.3
+这是我的麻雀计划，建一个小而全的博客系统。
