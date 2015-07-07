@@ -1,0 +1,39 @@
+{
+  "name": "sparrow",
+  "version": "1.0.0",
+  "description": "this a sparrow plan !",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "express": "^4.13.0"
+  },
+  "devDependencies": {
+    "gulp-clean": "^0.3.1",
+    "gulp-jshint": "^1.11.1",
+    "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-xinclude": "^1.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wufuxi/sparrow.git"
+  },
+  "keywords": [
+    "node",
+    "npm",
+    "gulp",
+    "express",
+    "mongdb"
+  ],
+  "author": "wufuxi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wufuxi/sparrow/issues"
+  },
+  "homepage": "https://github.com/wufuxi/sparrow#readme"
+}
