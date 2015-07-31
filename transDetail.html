@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>资产交易明细</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--xinclude rule="head"-->
+    <!--xinclude stylesheet="reset"-->
+    <!--xinclude stylesheet="style"-->
+    <!--xinclude stylesheet="accountquery/accountquery"-->
+</head>
+<body class="bgc">
+<div class="header-fix">
+    <div class="top-padding"></div>
+    <div class="container">
+        <div class="content table">
+            <div class="tr">
+                <div class="account-infor">
+                    <ul class="account-list">
+                        <li class="tal">当前资产（元）</li>
+                        <li class="tar" id="totalAssets"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-fixed1">
+    <div id="wrapBox">
+    <div class="container">
+        <div class="content table m-t-16">
+            <div class="tr">
+                <div class="account-box account">
+                    <div id="btnSelectTime" class="specify-time m-t-10">+指定时间</div>
+                    <ul id="timeRow" class="specify-time-list m-t-10" style="display: none;">
+                        <li id="selectDate" class="tal"><span id="startDate">2015-04-15</span>至<span id="endDate">2015-05-23</span></li>
+                        <li id="btnCancelTime" class="tar">取消指定时间</li>
+                    </ul>
+                    <div id="temp-box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- // -->
+<!--<div class="bind-panel3" style="display:block">
+    <div class="shadow3 table">
+        <div class="account-text p-l-16 p-r-16 bind-text td">
+            <p class="white tac f13">当前已后台挂失,请去银行柜台办理正式挂失</p>
+
+        </div>
+        <div class="tac button-text">
+            <span id="removeLoss" class="f17 white">解除挂失</span>
+        </div>
+    </div>
+</div>-->
+
+<script type="text/x-handlebars-template" id="temp-tpl">
+
+    <%
+    for(var dt in dateMap){
+        var innerStyle = (obj.isBeforeDate ? "style='margin-top:0'" : "");
+    %>
+    <div class="p-lr-15 table-point-box">
+        <table class="account-table" <%=innerStyle%>>
+            <%
+            var firstDate = dt;
+            _.each(dateMap[dt], function(item, index){
+                //firstDate = (index == 0 && innerStyle) ? "" : firstDate;
+            %>
+            <tr class="open-item" data-cdate="<%=item.applyDate%>">
+                <td width="25%" ><%=firstDate%></td>
+                <td class="tal" width="20%"><%=item.tradeName%></td>
+                <td class="tac" width="25%"><%=item.amount%></td>
+                <td class="tar" width="30%"><%=item.state%></td>
+            </tr>
+            <tr class="open-detail" style="display:none">
+                <td colspan="4">
+                    <div class="account-detail">
+                        <div class="up-icon"></div>
+                        <div class="detail-content">
+                            <div class="table">
+                                <p class="clearfix">
+                                    <span class="fl"><%=item.tradeName%><%=item.amount%></span>
+                                    <span class="fr"><%=item.state%></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <%
+                firstDate = "";
+            });
+            %>
+        </table>
+    </div>
+    <%
+    }
+    %>
+</script>
+
+<!--xinclude rule="core"-->
+<!--xinclude classes="moneyFund/transDetail"-->
+
+</body>
+</html>
